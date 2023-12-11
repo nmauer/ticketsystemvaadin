@@ -1,0 +1,11 @@
+*{
+    background-color: red;
+}
+
+.settings-overview-cell {
+    background-color: red;
+}
+
+.settings-overview-cell:hover {
+    cursor: pointer;
+}
