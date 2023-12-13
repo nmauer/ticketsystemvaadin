@@ -1,6 +1,8 @@
 package de.nmauer.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.vaadin.flow.component.avatar.Avatar;
+import com.vaadin.flow.server.StreamResource;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -9,6 +11,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
+
+import javax.accessibility.AccessibleValue;
+import java.io.ByteArrayInputStream;
 import java.util.Set;
 
 @Entity
@@ -64,6 +69,15 @@ public class User extends AbstractEntity {
     }
     public byte[] getProfilePicture() {
         return profilePicture;
+    }
+    public Avatar getProfilePictureAsAvatar() {
+        Avatar avatar = new Avatar(name);
+        StreamResource resource = new StreamResource("profile-pic",
+                () -> new ByteArrayInputStream(profilePicture));
+        avatar.setImageResource(resource);
+        avatar.setThemeName("xsmall");
+        avatar.getElement().setAttribute("tabindex", "-1");
+        return avatar;
     }
     public void setProfilePicture(byte[] profilePicture) {
         this.profilePicture = profilePicture;

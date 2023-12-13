@@ -1,11 +1,27 @@
-*{
-    background-color: red;
+.settings-overview-cell {
+    background-color: #324f94;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 50px;
+    border-radius: 10px;
+    position: relative;
 }
 
-.settings-overview-cell {
-    background-color: red;
+.settings-overview-cell-p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
 }
 
 .settings-overview-cell:hover {
     cursor: pointer;
+}
+
+.settings-overview-flex_layout {
+    margin-top: 2.5%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
